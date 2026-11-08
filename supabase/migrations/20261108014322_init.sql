@@ -1,4 +1,4 @@
--- Laboratorio NFL — migración inicial (PRD v1.0 §6.3, Plan v1.0 §3)
+-- Laboratorio NFL — migración inicial (PRD v1.1 §6.3, Plan v1.1 §3)
 -- Horas: timestamptz (UTC en la base, CST en la presentación).
 
 create schema if not exists ref;

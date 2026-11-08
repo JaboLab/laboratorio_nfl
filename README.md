@@ -28,9 +28,16 @@ ruff check . && pytest -q
 
 Proyectos: `labnfl-dev` y `labnfl-prod`.
 
-1. Aplicar migraciones: `supabase link --project-ref <ref>` y `supabase db push`.
-2. En **Settings → API → Exposed schemas**, agregar `core, model, book, report` (y `ref` si el front la necesita).
-3. Registrar el correo permitido (no se guarda en el repo):
+| Proyecto | Ref | Región |
+| --- | --- | --- |
+| `labnfl-dev` | `neeztaprvygpldrlsfcx` | us-east-1 |
+| `labnfl-prod` | `amscagzzkkeyzzdoluvp` | us-east-1 |
+
+Ambos tienen aplicadas las migraciones de `supabase/migrations/` con las mismas versiones, sin alertas del asesor de seguridad.
+
+1. Migraciones nuevas: probar en CI, aplicar en `labnfl-dev`, revisar el asesor de seguridad y después aplicar en `labnfl-prod` (`supabase link --project-ref <ref>` y `supabase db push`).
+2. En **Settings → API → Exposed schemas**, agregar `core, model, book, report`.
+3. El correo permitido se registra directo en la base (no se guarda en el repo):
    `insert into ref.allowed_users values ('<correo>');`
 4. En **Authentication**, desactivar el registro abierto y usar magic link.
 
