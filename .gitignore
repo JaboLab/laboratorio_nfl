@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.venv/
+*.egg-info/
+.env
+.env.*
+!.env.example
+supabase/.branches/
+supabase/.temp/
